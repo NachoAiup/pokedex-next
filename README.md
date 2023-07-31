@@ -3,7 +3,9 @@
 This is a front-end challenge using a pokemon API to show each pokemon within a card. The project was developed with Next.js with the idea of using its different ways of fetching data. A figma is given to follow the design.
 
 Deployed version: https://pokedex-next-yenf-m31iz76l1-nachoaiup.vercel.app
+
 API: https://pokeapi.co/api/v2
+
 Figma: https://www.figma.com/file/D7zpAhRq7Zy2LKDzpk1VfV/Pokedex-Interview-Project?type=design&node-id=0-1&mode=design&t=4UVIGtk4wn4LuoBn-0
 
 ## Illustrations
