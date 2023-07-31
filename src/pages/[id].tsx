@@ -33,7 +33,20 @@ function PokeDex({ pokemonList, currentPokemon }: Props) {
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    router.push(process.env.NEXT_PUBLIC_URL + (Number(e.target.value) + 1));
+    process.env.NEXT_PUBLIC_URL &&
+      router.push(process.env.NEXT_PUBLIC_URL + (Number(e.target.value) + 1));
+  };
+
+  const handlePrevClick = () => {
+    process.env.NEXT_PUBLIC_URL &&
+      router.push(process.env.NEXT_PUBLIC_URL + Number(currentPokemon?.id));
+  };
+
+  const handleNextClick = () => {
+    process.env.NEXT_PUBLIC_URL &&
+      router.push(
+        process.env.NEXT_PUBLIC_URL + (Number(currentPokemon?.id) + 2)
+      );
   };
 
   const handleFavClick = () => {
@@ -66,22 +79,14 @@ function PokeDex({ pokemonList, currentPokemon }: Props) {
         <button
           className={`${styles.button}`}
           disabled={currentPokemon?.id === 0}
-          onClick={() =>
-            router.push(
-              process.env.NEXT_PUBLIC_URL + Number(currentPokemon?.id)
-            )
-          }
+          onClick={handlePrevClick}
         >
           Previous
         </button>
         <button
           className={`${styles.button}`}
           disabled={currentPokemon?.id === 149}
-          onClick={() =>
-            router.push(
-              process.env.NEXT_PUBLIC_URL + (Number(currentPokemon?.id) + 2)
-            )
-          }
+          onClick={handleNextClick}
         >
           Next
         </button>
