@@ -33,7 +33,7 @@ function PokeDex({ pokemonList, currentPokemon }: Props) {
   const router = useRouter();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    router.push(`http://localhost:3000/${Number(e.target.value) + 1}`);
+    router.push(process.env.NEXT_PUBLIC_URL + (Number(e.target.value) + 1));
   };
 
   const handleFavClick = () => {
@@ -67,7 +67,9 @@ function PokeDex({ pokemonList, currentPokemon }: Props) {
           className={`${styles.button}`}
           disabled={currentPokemon?.id === 0}
           onClick={() =>
-            router.push(`http://localhost:3000/${Number(currentPokemon?.id)}`)
+            router.push(
+              process.env.NEXT_PUBLIC_URL + Number(currentPokemon?.id)
+            )
           }
         >
           Previous
@@ -77,7 +79,7 @@ function PokeDex({ pokemonList, currentPokemon }: Props) {
           disabled={currentPokemon?.id === 149}
           onClick={() =>
             router.push(
-              `http://localhost:3000/${Number(currentPokemon?.id) + 2}`
+              process.env.NEXT_PUBLIC_URL + (Number(currentPokemon?.id) + 2)
             )
           }
         >
